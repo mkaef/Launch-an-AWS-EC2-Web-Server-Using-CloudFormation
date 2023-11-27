@@ -26,6 +26,7 @@ CloudFormation is essentially infrastructure as a code which allows us to automa
 ## Next observe resource creation.
 ![creation-complete](https://github.com/mkaef/Launch-an-AWS-EC2-Web-Server-Using-CloudFormation/assets/20161437/7afb6c0c-fe65-4760-8d1f-f1a2fe5d998d)
 ## Next check for the  instance EC2 instance creation.
+![EC2-Instance-created](https://github.com/mkaef/Launch-an-AWS-EC2-Web-Server-Using-CloudFormation/assets/20161437/588e441d-3fd5-4cfb-834e-0c4377cb189e)
 ## Finally browse your HTML Web Page using the public IP address.
 ## Resource:
 reference Template: https://github.com/azeezsalu/how-to-host-a-html-website-on-aws-with-cloudformation
