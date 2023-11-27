@@ -19,6 +19,8 @@ CloudFormation is essentially infrastructure as a code which allows us to automa
 
 1. Security Group with resource type:AWS::EC2::SecurityGroup
 2. EC2 Instance with resource type: AWS::EC2::Instance
+   ![CF-template](https://github.com/mkaef/Launch-an-AWS-EC2-Web-Server-Using-CloudFormation/assets/20161437/7c8dca2f-a187-4c1a-b837-59098af9d398)
+
 ## Next create stack using your pre-defined template.
 ## Next observe resource creation.
 ## Next check for the  instance EC2 instance creation.
