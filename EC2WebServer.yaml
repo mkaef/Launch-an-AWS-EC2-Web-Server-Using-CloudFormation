@@ -1,0 +1,48 @@
+---
+Resources:
+  LinuxWebServerSG:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Allow access on ports 80 and 22
+      GroupName: MyEC2LinuxWebServer SG
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 80
+          ToPort: 80
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 107.136.229.12/32
+      Tags:
+        - Key: Name
+          Value: MyEC2LinuxWebServer SG
+      VpcId: vpc-0068464b09bf85c5c
+
+  EC2LinuxInstance:
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: t4g.small
+      SubnetId: subnet-038b02b2bfdf9e166
+      SecurityGroupIds:
+        - !Ref LinuxWebServerSG
+      KeyName: linuxkey2
+      ImageId: ami-0c80bdc3fa1b47c1f
+      Tags:
+        - Key: Name
+          Value: MyEC2LinuxWebServer
+      UserData:
+        Fn::Base64:
+          !Sub |
+            #!/bin/bash
+            sudo su
+            sudo yum install -y httpd
+            sudo chmod 777 /var/www/html
+            cd /var/www/html
+            sudo echo "<html>
+            <body  bgcolor=aqua>
+            <h1>  This is my EC2-Linux Web Server </h1>
+            </body>
+            </html>" > index.html
+            sudo service httpd start
+            sudo chkconfig httpd on
